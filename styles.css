@@ -38,6 +38,8 @@ canvas {
 #score {
     right: 1rem;
     font-size: 3rem;
+    margin-top: 4rem;
+    color: #ffffff;
 }
 
 h1,
@@ -51,8 +53,8 @@ a {
 
 #record {
     position: absolute;
-    top: 5rem;
-    color: #fff;
+    top: 1rem;
+    color: #fffc2e;
     right: 1rem;
     font-size: 3rem;
 }
