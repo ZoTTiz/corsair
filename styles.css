@@ -35,3 +35,11 @@ p {
 a {
     color: #000;
 }
+
+#record {
+    position: absolute;
+    top: 1.5rem;
+    color: #fff;
+    right: 1rem;
+    font-size: 3rem;
+}

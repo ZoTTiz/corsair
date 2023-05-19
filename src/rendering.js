@@ -5,6 +5,7 @@ import { polarToCartesian } from './helpers';
 
 const RADIUS = 50;
 const $score = document.getElementById('score');
+const $record = document.getElementById('record');
 
 function loadAsset(name) {
     return new Promise((resolve, reject) => {
@@ -224,6 +225,7 @@ function setup() {
 
         renderer.render(scene, camera);
         $score.innerHTML = state.get('score');
+        $record.innerHTML =  localStorage.getItem("record");
     };
 }
 

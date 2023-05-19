@@ -127,6 +127,11 @@ function gameFactory(stage, score) {
             return coin.set('collected', collision);
         }
 
+        const recorde = localStorage.getItem("record");
+        if (recorde < score + collected) {
+            localStorage.setItem("record", score + collected);        
+        }
+
         return state
             .update('coins', coins => coins.map(updateCoin))
             .update('score', score => score + collected);
