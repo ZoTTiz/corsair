@@ -224,8 +224,8 @@ function setup() {
         ship.position.y = position.y;
 
         renderer.render(scene, camera);
-        $score.innerHTML = state.get('score');
-        $record.innerHTML =  localStorage.getItem("record");
+        $score.innerHTML = `Score ${state.get('score')}`;
+        $record.innerHTML = `Recorde ${state.get("record") ? state.get("record") : 0}`;
     };
 }
 
