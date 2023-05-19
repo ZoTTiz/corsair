@@ -88,14 +88,13 @@ function waterFactory() {
 }
 
 function coinFactory() {
+    const textureHeads = new THREE.TextureLoader().load("assets/nova_moeda.png");
     const cylinder = new THREE.Mesh(
-        new THREE.CylinderGeometry(2, 2, 0.5, 16),
-        new THREE.MeshPhongMaterial({
-            color: 0xffd800,
-            shininess: 32,
-            specular: 0xffff82,
-        }),
-    );
+    new THREE.CylinderGeometry(2, 2, 0.5, 16),
+    new THREE.MeshPhongMaterial({
+        map: textureHeads,
+    })
+  )
     cylinder.rotation.x = Math.PI / 2;
     cylinder.castShadow = true;
     return cylinder;
