@@ -133,8 +133,17 @@ function gameFactory(stage, score) {
         }
 
         return state
-            .update('coins', coins => coins.map(updateCoin))
-            .update('score', score => score + collected);
+            .update("coins", (coins) => coins.map(updateCoin))
+            .update("score", (score) => {
+                const scoreAtual = score + collected;
+                const recorde = localStorage.getItem("record");
+        
+                if (!recorde || recorde < scoreAtual) {
+                    localStorage.setItem("record", scoreAtual);
+                }
+                return scoreAtual;
+            })
+            .update("record", () => localStorage.getItem("record"));
     });
 
     const cannonballs = events.map(([clock]) => (state) => {
