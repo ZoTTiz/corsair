@@ -23,8 +23,10 @@ canvas {
 }
 
 #welcome {
+    position: absolute;
     color: #fff;
-    top: 3rem;
+    top: 0.7rem;
+    left: 25%;
     align-items: center;
     text-align: center;
 }

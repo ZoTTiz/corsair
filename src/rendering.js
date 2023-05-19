@@ -6,6 +6,7 @@ import { polarToCartesian } from './helpers';
 const RADIUS = 50;
 const $score = document.getElementById('score');
 const $record = document.getElementById('record');
+const $welcome = document.getElementById('welcome');
 
 function loadAsset(name) {
     return new Promise((resolve, reject) => {
@@ -225,7 +226,8 @@ function setup() {
 
         renderer.render(scene, camera);
         $score.innerHTML = `Score ${state.get('score')}`;
-        $record.innerHTML = `Recorde ${state.get("record") ? state.get("record") : 0}`;
+        $record.innerHTML = `Record ${state.get("record") ? state.get("record") : 0}`;
+        $welcome.innerHTML = state.get('score') > 0 ? '' : $welcome.innerHTML;
     };
 }
 
