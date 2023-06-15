@@ -113,6 +113,31 @@ function cannonballFactory() {
     return sphere;
 }
 
+function createDirectionalLight(){
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.65);
+    directionalLight.color.setHSL(0.1, 1, 0.95);
+    directionalLight.position.set(-1, 1, 1);
+    directionalLight.position.multiplyScalar(50);
+    directionalLight.castShadow = true;
+
+    directionalLight.shadow.mapSize.width = 1024;
+    directionalLight.shadow.mapSize.height = 1024;
+    directionalLight.shadow.camera.left = -50;
+    directionalLight.shadow.camera.right = 50;
+    directionalLight.shadow.camera.top = 50;
+    directionalLight.shadow.camera.bottom = -50;
+    directionalLight.shadow.camera.near = 1;
+    directionalLight.shadow.camera.far = 200;
+
+    return directionalLight;
+}
+
+function renderInfo(score, record){
+    $score.innerHTML = `Score ${score}`;
+    $record.innerHTML = `Record ${record != null ? record : 0}`;
+    $welcome.innerHTML = score > 0 ? '' : $welcome.innerHTML;
+}
+
 function setup() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 200);
@@ -141,21 +166,8 @@ function setup() {
     hemisphereLight.position.set(0, 0, 500);
     scene.add(hemisphereLight);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.65);
-    directionalLight.color.setHSL(0.1, 1, 0.95);
-    directionalLight.position.set(-1, 1, 1);
-    directionalLight.position.multiplyScalar(50);
-    directionalLight.castShadow = true;
+    const directionalLight = createDirectionalLight();
     scene.add(directionalLight);
-
-    directionalLight.shadow.mapSize.width = 1024;
-    directionalLight.shadow.mapSize.height = 1024;
-    directionalLight.shadow.camera.left = -50;
-    directionalLight.shadow.camera.right = 50;
-    directionalLight.shadow.camera.top = 50;
-    directionalLight.shadow.camera.bottom = -50;
-    directionalLight.shadow.camera.near = 1;
-    directionalLight.shadow.camera.far = 200;
 
 //    const cameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
 //    scene.add(cameraHelper);
@@ -224,9 +236,8 @@ function setup() {
         ship.position.y = position.y;
 
         renderer.render(scene, camera);
-        $score.innerHTML = `Score ${state.get('score')}`;
-        $record.innerHTML = `Record ${state.get("record") ? state.get("record") : 0}`;
-        $welcome.innerHTML = state.get('score') > 0 ? '' : $welcome.innerHTML;
+
+        renderInfo(state.get('score'), state.get('record'));
     };
 }
 
