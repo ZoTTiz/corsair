@@ -22,16 +22,6 @@ function loadAsset(name) {
     });
 }
 
-function wireframeSphereFactory(size) {
-    const geometry = new THREE.SphereBufferGeometry(size, size, size);
-    const wireframe = new THREE.WireframeGeometry(geometry);
-    const line = new THREE.LineSegments(wireframe);
-    line.material.depthTest = false;
-    line.material.opacity = 0.25;
-    line.material.transparent = true;
-    return line;
-}
-
 function circleFactory() {
     const segmentCount = 64;
     const radius = RADIUS;
@@ -50,7 +40,7 @@ function circleFactory() {
 
 function shipFactory() {
     const container = new THREE.Object3D();
-    // container.add(wireframeSphereFactory(6));
+
     loadAsset('ship').then((ship) => {
         ship.traverse((node) => {
             node.castShadow = true; // eslint-disable-line no-param-reassign
@@ -143,13 +133,6 @@ function setup() {
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 200);
     camera.position.z = 100;
 
-    // const axisHelper = new THREE.AxisHelper(10);
-    // scene.add(axisHelper);
-
-    // camera.position.set(0, -100, 30);
-    // camera.up = new THREE.Vector3(0, 1, 0);
-    // camera.lookAt(new THREE.Vector3(0, 0, 0));
-
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -168,9 +151,6 @@ function setup() {
 
     const directionalLight = createDirectionalLight();
     scene.add(directionalLight);
-
-//    const cameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
-//    scene.add(cameraHelper);
 
     const circle = circleFactory();
     scene.add(circle);
