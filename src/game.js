@@ -121,6 +121,10 @@ function gameFactory(stage, score) {
                 4);
 
             if (collision) {
+                // Colisão da moeda
+                const coin_sound = new Audio("../assets/sounds/coin_sound.wav");
+                coin_sound.play();
+                
                 collected++;
             }
 
@@ -170,6 +174,10 @@ function gameFactory(stage, score) {
                 4);
 
             if (collision) {
+                // Colisão do navio
+                const explosion_sound = new Audio("../assets/sounds/explosion_sound.wav");
+                explosion_sound.play();
+    
                 next = next.set('collision', true);
             }
 
