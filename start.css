@@ -1,0 +1,85 @@
+body {
+    font-family: 'Pirata One', sans-serif;
+    background: radial-gradient(circle,
+    hsl(180, 15%, 90%) 0%,
+    hsl(180, 25%, 70%) 0%,
+    hsl(180, 35%, 40%) 100%);
+    background-image: url('assets/fundo.png');
+    background-position-y: -140px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Pirata One', sans-serif;
+  }
+  
+  .wrap {
+    height: 100%;
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+  }
+  
+  .button {
+    min-width: 340px;
+    min-height: 90px;
+    font-family: 'Pirata One', sans-serif;
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    /* background: #4FD1C5; */
+    background: #fffc2e;
+    /* background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%); */
+    border: none;
+    border-radius: 1000px;
+    box-shadow: #fffc2ea6;
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    top: 45%;
+    left: 20%;
+    padding: 10px;
+    }
+  
+
+  
+  .button:hover, .button:focus {
+    color: #313133;
+    transform: translateY(-6px);
+  }
+  
+  button:hover::before, button:focus::before {
+    opacity: 1;
+  }
+  
+  button::after {
+    content: '';
+    width: 30px; height: 30px;
+    border-radius: 100%;
+    border: 6px solid #fffc2e;
+    /* border: 6px solid #00FFCB; */
+    position: absolute;
+    z-index: -1;
+    top: 40%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+  }
+  
+  #welcome {
+    position: absolute;
+    color: #313133;
+    top: 12rem;
+    left: 14%;
+    align-items: center;
+    text-align: center;
+}
+
+    #welcome h2{
+        font-size: 4rem;
+    }
+  }
