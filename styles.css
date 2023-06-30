@@ -130,3 +130,14 @@ a {
     background-color: #fffc2e;
     transition: all 0.2s ease;
   }
+
+  .explosion {
+    float: left;
+    position: absolute;
+}
+
+#locExplosion {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}

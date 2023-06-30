@@ -64,6 +64,36 @@ function displayGameOverModal(message) {
     modalMessage.textContent = message;
 }
 
+function explosion(){
+    const listExplosion = [
+        {
+            top: '6%',
+            left: '42%',
+        },
+        {
+            top: '30%',
+            left: '26%',
+        },
+        {
+            top: '30%',
+            left: '59%',
+        },
+        {
+            top: '64%',
+            left: '42%',
+        },
+    ];
+    const locExplosion = document.getElementById('locExplosion');
+
+    listExplosion.forEach(item=>{       
+        const explosion1 = `
+        <div style="position: absolute; top: ${item.top}; left: ${item.left};">
+            <lottie-player src="https://assets5.lottiefiles.com/private_files/lf30_zzhwy8ge.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;" autoplay></lottie-player>
+        </div>`
+        locExplosion.innerHTML += explosion1;
+    })
+}
+
 function gameFactory(stage, score) {
     const initialState = Immutable.fromJS({
         player: {
@@ -98,6 +128,8 @@ function gameFactory(stage, score) {
         const position = state.getIn(['player', 'angle']) +
             clock.get('delta') * input.get('direction') * state.getIn(['speed', 'player']);
         const normalized = (position + Math.PI * 2) % (Math.PI * 2);
+
+        console.log(position);
 
         return state.mergeDeep({
             player: {
@@ -188,7 +220,10 @@ function gameFactory(stage, score) {
     
                 next = next.set('collision', true);
 
+                explosion();
+
                 displayGameOverModal("Você perdeu! Tente novamente.");
+                
             }
 
             return next.set('radius', cannonBallRadius + cannonballSpeed);

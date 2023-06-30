@@ -12,8 +12,14 @@
             const modal = document.getElementById('gameOverModal');
 
             modal.style.display = 'none';
+
+            const locExplosion = document.getElementById('locExplosion')
+
+            locExplosion.innerHTML = '';
         }
     </script>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 </head>
 <body>
@@ -36,7 +42,14 @@
           <button class="PlayAgain" onclick="closeModal()">Jogar novamente</button>
         </div>
     </div>
+<!-- 
+    <div style="position: absolute; top: 20%; left: 50%;">
+        <lottie-player src="https://assets5.lottiefiles.com/private_files/lf30_zzhwy8ge.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+    </div> -->
+    <div id="locExplosion">
 
+    </div>
+    
     <script src="/main.js"></script>
 </body>
 </html>
