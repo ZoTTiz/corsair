@@ -56,6 +56,14 @@ function calculateCannonballSpeed(stage) {
     return (BASE + stage * ACCELERATION) / 1000;
 }
 
+function displayGameOverModal(message) {
+    const modal = document.getElementById('gameOverModal');
+    const modalMessage = document.getElementById('gameOverMessage');
+  
+    modal.style.display = 'block';
+    modalMessage.textContent = message;
+}
+
 function gameFactory(stage, score) {
     const initialState = Immutable.fromJS({
         player: {
@@ -179,6 +187,8 @@ function gameFactory(stage, score) {
                 explosion_sound.play();
     
                 next = next.set('collision', true);
+
+                displayGameOverModal("Você perdeu! Tente novamente.");
             }
 
             return next.set('radius', cannonBallRadius + cannonballSpeed);

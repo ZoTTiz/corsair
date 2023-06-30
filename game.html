@@ -1,15 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Pirata+One" rel="stylesheet">
     <link href="/styles.css" rel="stylesheet">
     <title>Corsair</title>
+
+    <script>
+        function closeModal(){
+            const modal = document.getElementById('gameOverModal');
+
+            modal.style.display = 'none';
+        }
+    </script>
+
 </head>
 <body>
     <div id="welcome">
-        <h2>Bem vindo ao jogo Corsair, pressione espaço para começar sua navegação!</h2>
+        <h2>Pressione espaço para começar sua navegação!</h2>
     </div>
     <div id="score"></div>
     <div id="record"></div>
@@ -18,6 +27,16 @@
         <p>Blog <a href="https://manu.ninja/">manu.ninja</a></p>
         <p>Twitter <a href="https://twitter.com/manuelwieser">@manuelwieser</a></p>
     </div>
+
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+          <button class="close" onclick="closeModal()">&times;</button>
+          <h2>Game Over</h2>
+          <p id="gameOverMessage"></p>
+          <button class="PlayAgain" onclick="closeModal()">Jogar novamente</button>
+        </div>
+    </div>
+
     <script src="/main.js"></script>
 </body>
 </html>

@@ -26,7 +26,7 @@ canvas {
     position: absolute;
     color: #fff;
     top: 0.7rem;
-    left: 25%;
+    left: 33%;
     align-items: center;
     text-align: center;
 }
@@ -58,3 +58,75 @@ a {
     right: 1rem;
     font-size: 3rem;
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* margin: 15% auto; */
+    padding: 40px;
+    padding-top: 60px;
+    padding-left: 60px;
+    border: 1px solid #888;
+    border-radius: 24px;
+    font-size: 48px;
+    text-align: center;
+    /* width: 40%; */
+  }
+
+  .modal-content h2{
+    all: unset;
+    font-size: 90px;
+    font-weight: bold;
+  }
+
+  .modal-content p{
+    margin-top: 40px;
+  }
+  
+  .close {
+    all:unset;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .PlayAgain {
+    font-size: 42px;
+    font-family: 'Pirata One', sans-serif;
+    text-align: center;
+    border: 3px solid #fffc2e;
+    cursor: pointer;
+    background-color: #fefefe;
+    border-radius: 12px;
+    padding: 20px 25px;
+    margin-top: 40px;
+    transition: all 0.2s ease;
+  }
+
+  .PlayAgain:hover {
+    background-color: #fffc2e;
+    transition: all 0.2s ease;
+  }
